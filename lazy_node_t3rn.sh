@@ -61,29 +61,18 @@ CONFIG_FILE="$HOME_DIR/executor/executor/bin/.t3rn"
 mkdir -p $(dirname $CONFIG_FILE)
 cat <<EOT > $CONFIG_FILE
 NODE_ENV=testnet
-LOG_LEVEL=debug
-LOG_PRETTY=false
 export EXECUTOR_MAX_L3_GAS_PRICE=1500
 EXECUTOR_PROCESS_ORDERS=true
-export ENVIRONMENT=testnet
-EXECUTOR_PROCESS_CLAIMS=true
-EXECUTOR_ENABLE_BATCH_BID=false 
-EXECUTOR_PROCESS_ORDERS_API_ENABLED=false
+ENVIRONMENT=testnet
 PRIVATE_KEY_LOCAL=$PRIVATE_KEY
 ENABLED_NETWORKS='arbitrum-sepolia,base-sepolia,optimism-sepolia,l2rn'
-RPC_ENDPOINTS='{
-    "l2rn": ["https://b2n.rpc.caldera.xyz/http"],
-    "arbt": ["https://arbitrum-sepolia.drpc.org", "https://sepolia-rollup.arbitrum.io/rpc"],
-    "bast": ["https://base-sepolia-rpc.publicnode.com", "https://base-sepolia.drpc.org"],
-    "opst": ["https://sepolia.optimism.io", "https://optimism-sepolia.drpc.org"],
-    "unit": ["https://unichain-sepolia.drpc.org", "https://sepolia.unichain.org"]
-  }'
-export EXECUTOR_MAX_L3_GAS_PRICE=500
-export EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=false
-export EXECUTOR_PROCESS_ORDERS_API_ENABLED=false
-export EXECUTOR_PROCESS_BIDS_BATCH=true
-export EXECUTOR_ENABLE_BATCH_BIDDING=true
-
+RPC_ENDPOINTS='{"l2rn": ["https://b2n.rpc.caldera.xyz/http"],"arbt": ["https://arbitrum-sepolia.drpc.org/", "https://sepolia-rollup.arbitrum.io/rpc"],"bast": ["https://base-sepolia-rpc.publicnode.com/", "https://base-sepolia.drpc.org/"],"opst": ["https://sepolia.optimism.io/", "https://optimism-sepolia.drpc.org/"],"unit": ["https://unichain-sepolia.drpc.org/", "https://sepolia.unichain.org/"]
+}'
+EXECUTOR_MAX_L3_GAS_PRICE=500
+EXECUTOR_PROCESS_PENDING_ORDERS_FROM_API=false
+EXECUTOR_PROCESS_ORDERS_API_ENABLED=false
+EXECUTOR_PROCESS_BIDS_BATCH=true
+EXECUTOR_ENABLE_BATCH_BIDDING=true
 EOT
 
 # Create systemd service for t3rn
