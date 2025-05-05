@@ -45,8 +45,8 @@ fi
 PRIVATE_KEY=$(cat private_key.txt)
 
 # Download the latest t3rn executor binary
-LATEST_VERSION=$(curl -s https://api.github.com/repos/t3rn/executor-release/releases/latest | grep 'tag_name' | cut -d\" -f4)
-#LATEST_VERSION="v0.53.1"
+#LATEST_VERSION=$(curl -s https://api.github.com/repos/t3rn/executor-release/releases/latest | grep 'tag_name' | cut -d\" -f4)
+LATEST_VERSION="v0.59.0"
 EXECUTOR_URL="https://github.com/t3rn/executor-release/releases/download/${LATEST_VERSION}/executor-linux-${LATEST_VERSION}.tar.gz"
 curl -L -o executor-linux-${LATEST_VERSION}.tar.gz $EXECUTOR_URL
 
